@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: asyoulike-web
+  labels:
+    app: asyoulike-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: asyoulike-web
+  template:
+    metadata:
+      labels:
+        app: asyoulike-web
+    spec:
+      containers:
+        - name: asyoulike
+          image: asia.gcr.io/pacific-ethos-331308/asyoulike:t0.0.2
+          ports:
+            - containerPort: 80
